@@ -1127,9 +1127,9 @@ if (reversed == null) { reversed = false; }
 			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
 			setTimeout(function()
 			{
-				this.parent.strFrame = "strFrame3";
+				//this.parent.strFrame = "strFrame3";
 				this.parent.fLaunchProduct();
-				this.fShowCorrectAnswer();
+				//this.fShowCorrectAnswer();
 			}.bind(this), 5000);
 		}
 		this.init();
@@ -1307,9 +1307,9 @@ if (reversed == null) { reversed = false; }
 			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
 			setTimeout(function()
 			{
-				this.parent.strFrame = "strFrame2";
+				//this.parent.strFrame = "strFrame2";
 				this.parent.fLaunchProduct();
-				this.fShowCorrectAnswer();
+				//this.fShowCorrectAnswer();
 			}.bind(this), 5000);
 		}
 		this.init();
@@ -1455,7 +1455,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1637835060519", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1637855120723", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };
