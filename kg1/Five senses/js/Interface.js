@@ -646,10 +646,7 @@ if (reversed == null) { reversed = false; }
 			__nTotal = nTotal;
 			__objRef = objRef;
 			blnSubmit = false;
-			for (var i = 1; i <=__nTotal; i++) {
-				//__objRef["mc_" + i].addEventListener(MouseEvent.MOUSE_DOWN, fPressFunction);
-				//__objRef["mc_" + i].buttonMode = true;
-				//__objRef["mc_" + i].mouseChildren = false;
+			for (var i = 1; i <=__nTotal; i++) {		
 				this["mc_" + i].btn.addEventListener("mousedown", this["mc_" + i].listener = this.fPressFunction.bind(this));
 				this["mc_" + i].btn.cursor = "pointer";
 				this["mc_" + i].id = i;
@@ -659,20 +656,21 @@ if (reversed == null) { reversed = false; }
 				this["mc_" + i].mc = this["mc_" + i];
 				this["mc_" + i].xx = this["mc_" + i].x;
 				this["mc_" + i].yy = this["mc_" + i].y;
-				this["mc_" + i]._mcLine = null;
-				this["mcH_"+i]._mcLine = null;
-				this["mc_" + i].blnCorrect=false;
-				console.log(i + "------------i installed");
+				//this["mc_" + i]._mcLine = null;
+				//this["mcH_"+i]._mcLine = null;
+				this["mc_" + i].blnCorrect=false;		
 			}
 		}
 		this.fPressFunction = function(evt) {	
 			__mcCurrentMovieClip = evt.currentTarget.parent;	
-			__mcCurrentMovieClip.__mcLine = new createjs.Shape();	
+			//__mcCurrentMovieClip.__mcLine = new createjs.Shape();
 			stage.addEventListener("stagemousemove", this.stageMouseMove = this.fMouseMoveFunction.bind(this));
 			stage.addEventListener("stagemouseup", this.stageMouseUp = this.fCheckHitTest.bind(this));	
-			if (__mcCurrentMovieClip._mcLine) {
-				__mcCurrentMovieClip._mcLine.graphics.clear();
-				__mcCurrentMovieClip.mcDrop._mcLine = null;
+			if (__mcCurrentMovieClip.__mcLine) {
+				__mcCurrentMovieClip.__mcLine.graphics.clear();		
+			}
+			if (__mcCurrentMovieClip.mcDrop) {
+				__mcCurrentMovieClip.mcDrop.__mcLine = null;
 				__mcCurrentMovieClip.mcDrop.blnUsed = false;
 			}
 		}
@@ -681,13 +679,13 @@ if (reversed == null) { reversed = false; }
 			this.pt = this.globalToLocal(stage.mouseX, stage.mouseY);	
 		    __mcCurrentMovieClip.x = this.pt.x;
 		    __mcCurrentMovieClip.y = this.pt.y;
-			this.fDraw();		
 			this.addChild(__mcCurrentMovieClip);
+			this.fDraw();			
 			stage.update();	
 		}
 		this.fCheckHitTest = function(evt) {	
 			for (var i =1; i <=__nTotal; i++) {
-				this.myDisplayObject = __objRef["mcH_"+i];
+				this.myDisplayObject = __objRef["mcH_"+i].btn;
 				this.pt = this.myDisplayObject.globalToLocal(stage.mouseX, stage.mouseY);	
 				if(this.myDisplayObject.hitTest(this.pt.x, this.pt.y) && !this.myDisplayObject.blnUsed){
 				//if (__mcCurrentMovieClip.hitTest(__objRef["mcH_"+i]) && !__objRef["mcH_"+i].blnUsed) {
@@ -696,7 +694,7 @@ if (reversed == null) { reversed = false; }
 						__objRef["mcH_"+i].mcDrag.btn.mouseEnabled = true;
 						__objRef["mcH_"+i].mcDrag.x = __objRef["mcH_"+i].mcDrag.xx;
 						__objRef["mcH_"+i].mcDrag.y = __objRef["mcH_"+i].mcDrag.yy;
-						__objRef["mcH_" + i]._mcLine = null;
+						__objRef["mcH_" + i].__mcLine = null;
 						__objRef["mcH_"+i].mcDrag._mcLine = null;
 						__objRef["mcH_"+i].mcDrag = null;
 					}
@@ -713,28 +711,36 @@ if (reversed == null) { reversed = false; }
 					
 					//--------------------------			
 					__objRef["mcH_"+i].mcDrag = __mcCurrentMovieClip;
-					__mcCurrentMovieClip._mcLine = __mcLine;
-					__objRef["mcH_"+i]._mcLine = __mcLine;
+					//__mcCurrentMovieClip._mcLine = __mcLine;
+					__objRef["mcH_"+i].__mcLine = arrLines;
 					__mcCurrentMovieClip.mcDrop = __objRef["mcH_"+i];
-					arrLines[i-1] = __mcLine;
+					arrLines[i-1] = __mcCurrentMovieClip.__mcLine;
 					//__mcLine.graphics.endFill();
 					//__objRef.addChild(__mcLine);
 					__nCountHit++;
 					n = i;
+					
 					for (var j =1; j <=__nTotal; j++) {
-						this["mc_" + j].removeEventListener("mousedown", __objRef["mc_" + j].listener, false);
-						this["mc_" + j].cursor = null;
+						//this["mc_" + j].btn.removeEventListener("mousedown", this["mc_" + j].listener, false);
+						this["mc_" + j].btn.mouseEnabled = false;				
 					}
 					if (this["mcH_"+i].setID == this["mcH_"+i].id) {
+						__mcCurrentMovieClip.btn.removeEventListener("mousedown", __mcCurrentMovieClip.listener, false);
+						__mcCurrentMovieClip.btn.cursor = null;			
 						//__objRef["mcTick_" + i].gotoAndStop(3);
 						__objRef["mcTick_" + i].gotoAndStop(2);
-						objRef["mc_" + i].blnCorrect = true;
+						objRef["mc_" + i].blnCorrect = true;				
 						//var mc2 = new right();
 						//__objRef.addChild(mc2);
 						//--------------------------
 						this.nRandom = Math.floor(Math.random()*3);
 						this.nRandom = this.nRandom + 1;	
 						this.fbAudio = main.playAudio('right'+this.nRandom);
+						this.fbAudio.addEventListener('complete', this.instAudEnt = function()
+						{ 
+							this.remove();
+							this.fbAudio.removeEventListener('complete', this.instAudEnt);					
+						}.bind(this));	
 						//-----------
 						__objRef["mcH_"+i].btn.mouseEnabled = false;
 						if (!objRef["mc_" + __objRef["mcH_"+i].setID].blnFail) {
@@ -743,8 +749,12 @@ if (reversed == null) { reversed = false; }
 						__nProgress++;
 					} else {
 						__mcCurrentMovieClip.blnFail = true;
-						this.fbAudio = main.playAudio('incorrect');	
-						
+						this.fbAudio = main.playAudio('incorrect');
+						this.fbAudio.addEventListener('complete', this.instAudEnt = function()
+						{ 
+							this.fRefresh();
+							this.fbAudio.removeEventListener('complete', this.instAudEnt);					
+						}.bind(this));				
 						__objRef["mcTick_" + i].gotoAndStop(1);
 					}
 					stage.removeEventListener("stagemousemove", this.stageMouseMove, false);
@@ -764,10 +774,10 @@ if (reversed == null) { reversed = false; }
 			__mcCurrentMovieClip.__mcLine.graphics.setStrokeStyle(4, 'round').beginStroke("#003399");
 			__mcCurrentMovieClip.__mcLine.graphics.moveTo(__mcCurrentMovieClip.xx, __mcCurrentMovieClip.yy);
 			__mcCurrentMovieClip.__mcLine.graphics.lineTo(__mcCurrentMovieClip.x, __mcCurrentMovieClip.y);		
-			this.addChild(__mcLine);
+			this.addChild(__mcCurrentMovieClip.__mcLine);
 		}
 		this.fRefresh = function(){
-			__mcLine.graphics.clear();
+			__mcCurrentMovieClip.__mcLine.graphics.clear();
 			__mcCurrentMovieClip.x = __mcCurrentMovieClip.xx;
 			__mcCurrentMovieClip.y = __mcCurrentMovieClip.yy;	
 			this["mcTick_" + n].gotoAndStop(0);
@@ -779,8 +789,9 @@ if (reversed == null) { reversed = false; }
 					this["mcTick_" + i].gotoAndStop(0);
 					this["mcH_"+i].setID = undefined;
 					this["mcH_"+i].blnUsed = false;			
-					this["mc_" + i].btn.addEventListener("mousedown", __objRef["mc_" + i].listener = this.fPressFunction.bind(this));
-					this["mc_" + i].btn.cursor = "pointer";				
+					//this["mc_" + i].btn.addEventListener("mousedown", __objRef["mc_" + i].listener = this.fPressFunction.bind(this));
+					//this["mc_" + i].btn.cursor = "pointer";				
+					this["mc_" + i].btn.mouseEnabled = true;
 					this["mc_" + i]._mcLine = null;
 					this["mcH_"+i]._mcLine = null;
 				}
@@ -1143,7 +1154,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1638089569457", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638091802680", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };
