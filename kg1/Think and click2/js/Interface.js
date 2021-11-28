@@ -27,7 +27,7 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_17 = function() {
+(lib.CachedBmp_264 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -272,7 +272,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_17();
+	this.instance = new lib.CachedBmp_264();
 	this.instance.setTransform(-488.5,-302.45,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1145,7 +1145,8 @@ if (reversed == null) { reversed = false; }
 		}*/
 		
 		this.stop();
-		alert("end slide");
+		//alert("end slide");
+		main.showRestartBtn();
 	}
 
 	// actions tween:
@@ -2039,7 +2040,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1638043053900", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118755639", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };

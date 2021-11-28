@@ -770,7 +770,8 @@ if (reversed == null) { reversed = false; }
 		}*/
 		
 		this.stop();
-		alert("EndScreen");
+		//alert("EndScreen");
+		main.showRestartBtn();
 	}
 
 	// actions tween:
@@ -1608,7 +1609,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1637916177107", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118606921", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };

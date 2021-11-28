@@ -72,22 +72,23 @@
 
 	p.showRestartBtn = function ()
 	{
-		$('#start_btn_con').css('opacity', 0);
-		$( "#start_btn_con" ).animate({ opacity: 1 }, 500, "swing");
+		//$('#start_btn_con').css('opacity', 0);
+		//$( "#start_btn_con" ).animate({ opacity: 1 }, 500, "swing");
 		this.restartBtnBg = document.getElementById("restart_btn_icon");
 		this.domRestartBtn = new createjs.DOMElement(this.restartBtnBg);
 		innerDivCon.style.height = '100%';
-		this.startBtnCon.style.display = this.restartBtnBg.style.display = 'block';	
+		//this.startBtnCon.style.display =
+		this.restartBtnBg.style.display = 'block';	
 		stage.addChild(this.domRestartBtn);
 		this.domRestartBtn.x = Math.round(canvasWidth/2 - 477/2);
 		this.domRestartBtn.y = Math.round(canvasHeight/2 - 354/2);
 
-		this.startBtnCon = document.getElementById("start_btn_con");
+		/*this.startBtnCon = document.getElementById("start_btn_con");
 		this.startBtnCon.style.display = 'block';
 		this.startBtnCon.addEventListener('click', function()
 		{ 
 			window.location.reload();
-		}.bind(this), false);
+		}.bind(this), false);*/
 	}
 
 

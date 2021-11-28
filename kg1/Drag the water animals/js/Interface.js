@@ -27,35 +27,35 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_10 = function() {
+(lib.CachedBmp_244 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_9 = function() {
+(lib.CachedBmp_243 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_8 = function() {
+(lib.CachedBmp_242 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_7 = function() {
+(lib.CachedBmp_241 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_6 = function() {
+(lib.CachedBmp_240 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
@@ -758,7 +758,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).to({state:[{t:this.shape_1},{t:this.shape}]},15).to({state:[{t:this.shape_3},{t:this.shape_2}]},1).to({state:[{t:this.shape_5},{t:this.shape_4}]},1).to({state:[{t:this.shape_7},{t:this.shape_6}]},1).to({state:[{t:this.shape_9},{t:this.shape_8}]},1).to({state:[{t:this.shape_11},{t:this.shape_10}]},1).to({state:[{t:this.shape_13},{t:this.shape_12}]},1).to({state:[{t:this.shape_11},{t:this.shape_10}]},1).to({state:[{t:this.shape_9},{t:this.shape_8}]},1).to({state:[{t:this.shape_7},{t:this.shape_6}]},1).to({state:[{t:this.shape_5},{t:this.shape_4}]},1).to({state:[{t:this.shape_3},{t:this.shape_2}]},1).to({state:[{t:this.shape_1},{t:this.shape}]},1).wait(9));
 
 	// Layer_2
-	this.instance = new lib.CachedBmp_9();
+	this.instance = new lib.CachedBmp_243();
 	this.instance.setTransform(-4.25,-2.65,0.4572,0.4572);
 
 	var maskedShapeInstanceList = [this.instance];
@@ -908,10 +908,10 @@ if (reversed == null) { reversed = false; }
 	this.shape_21.graphics.f("#D6D6D6").s().p("AhfFrIgWgIIgPgIQg1gcgsgzQhfhvAAidQAAicBfhvQAJgLAKgIQAngnAmgUQARgJATgHQAugRAzAAQCHAABeBvQBgBvAACcQAACdhgBvQheBviHAAQgyAAgtgQgAgrksQgQAGgPAIQggARgiAhQgJAIgHAJQhRBfAACGQAACGBRBfQAmAsAtAYIANAHIATAHQAmANArAAQB0AABRhfQBShfAAiGQAAiGhShfQhRhfh0AAQgrAAgoAOg");
 	this.shape_21.setTransform(0.025,0.025);
 
-	this.instance = new lib.CachedBmp_8();
+	this.instance = new lib.CachedBmp_242();
 	this.instance.setTransform(-3.15,-23.4,0.5,0.5);
 
-	this.instance_1 = new lib.CachedBmp_7();
+	this.instance_1 = new lib.CachedBmp_241();
 	this.instance_1.setTransform(-32.95,-38.35,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_21},{t:this.shape_20},{t:this.shape_19}]}).to({state:[{t:this.instance_1},{t:this.instance}]},39).wait(2));
@@ -1012,7 +1012,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.shape_2},{t:this.shape_1}]},9).to({state:[{t:this.shape_4},{t:this.shape_3}]},1).to({state:[{t:this.shape_6},{t:this.shape_5}]},1).to({state:[{t:this.shape_8},{t:this.shape_7}]},1).to({state:[{t:this.shape_10},{t:this.shape_9}]},1).to({state:[{t:this.shape_12},{t:this.shape_11}]},1).to({state:[{t:this.shape_14},{t:this.shape_13}]},1).to({state:[{t:this.shape_14},{t:this.shape_13}]},3).to({state:[{t:this.shape_12},{t:this.shape_11}]},1).to({state:[{t:this.shape_10},{t:this.shape_9}]},1).to({state:[{t:this.shape_8},{t:this.shape_7}]},1).to({state:[{t:this.shape_6},{t:this.shape_5}]},1).to({state:[{t:this.shape_4},{t:this.shape_3}]},1).to({state:[{t:this.shape_2},{t:this.shape_1}]},1).wait(51));
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_6();
+	this.instance = new lib.CachedBmp_240();
 	this.instance.setTransform(-11.35,-22.05,0.5,0.5);
 
 	var maskedShapeInstanceList = [this.instance];
@@ -2323,7 +2323,8 @@ if (reversed == null) { reversed = false; }
 		this.init();
 		this.fCalculateScore = function() {
 			var nP = Math.floor((__nScore/__nButtonPush)*100);	
-			alert(__nScore + "---------------------endSlide----");
+			//alert(__nScore + "---------------------endSlide----");
+			main.showRestartBtn();
 			if (nP < 70) {
 				//MovieClip(parent.parent.parent).mcFinal.mcRank.gotoAndPlay("rank2");		
 			} else {
@@ -2544,7 +2545,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1638105419811", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118587106", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };

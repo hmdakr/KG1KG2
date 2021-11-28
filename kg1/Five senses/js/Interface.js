@@ -812,7 +812,8 @@ if (reversed == null) { reversed = false; }
 		this.fCalculateScore = function() {
 			var nPercentage = (__nScore/5)*100;
 			nPercentage = Math.ceil(nPercentage);
-			alert(nPercentage + "---------------------EndSlide");
+			main.showRestartBtn();
+			//alert(nPercentage + "---------------------EndSlide");
 			if (nPercentage < 70) {
 				//MovieClip(parent.parent.parent).mcFinal.mcRank.gotoAndPlay("rank2");		
 			} else {
@@ -1154,7 +1155,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1638091802680", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118801095", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };

@@ -491,8 +491,9 @@ if (reversed == null) { reversed = false; }
 		}
 		this.init();
 		this.fCalculateScore = function(){	
+			main.showRestartBtn();
 			var nP = Math.floor((__arrCorrectAnswer.length/__nButtonPush)*100);	
-			alert(__arrCorrectAnswer.length + "---------------------"+__nButtonPush+"---------"+nP);
+			//alert(__arrCorrectAnswer.length + "---------------------"+__nButtonPush+"---------"+nP);
 			if (nP < 70) {
 				//MovieClip(parent.parent.parent).mcFinal.mcRank.gotoAndPlay("rank2");		
 			} else {
@@ -668,7 +669,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1637848308382", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118650971", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };

@@ -1304,7 +1304,8 @@ if (reversed == null) { reversed = false; }
 			}
 		}*/
 		
-		alert("---EndFinal------");
+		//alert("---EndFinal------");
+		main.showRestartBtn();
 		this.stop();
 	}
 
@@ -2506,7 +2507,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1637904218765", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1638118734825", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };
