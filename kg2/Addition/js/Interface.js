@@ -27,28 +27,28 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_101 = function() {
+(lib.CachedBmp_4 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_100 = function() {
+(lib.CachedBmp_3 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_99 = function() {
+(lib.CachedBmp_2 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_98 = function() {
+(lib.CachedBmp_1 = function() {
 	this.initialize(ss["Interface_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
@@ -719,7 +719,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_101();
+	this.instance = new lib.CachedBmp_4();
 	this.instance.setTransform(-40.5,-60.85,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -742,7 +742,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_100();
+	this.instance = new lib.CachedBmp_3();
 	this.instance.setTransform(-15.6,-60.85,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -765,7 +765,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_99();
+	this.instance = new lib.CachedBmp_2();
 	this.instance.setTransform(-73.85,-60.85,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -788,7 +788,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_98();
+	this.instance = new lib.CachedBmp_1();
 	this.instance.setTransform(-73.85,-60.85,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1328,12 +1328,6 @@ if (reversed == null) { reversed = false; }
 		/* this.blnPlay = true;*/
 	}
 	this.frame_69 = function() {
-		/* stop();
-		this.blnPlay = false;
-		__nCorrectAnswer = 3;
-		init();
-		blnEnd = true;*/
-		
 		this.stop();
 		this.blnPlay = false;
 		var objRef = this;
@@ -1344,7 +1338,7 @@ if (reversed == null) { reversed = false; }
 			for (var i = 1; objRef["mc_"+i] != undefined; i++) {
 				objRef["mc_"+i].id = i;				
 				objRef["mc_" + i].btn.addEventListener("mousedown", objRef["mc_" + i].listener = this.fClickEvent.bind(this));
-				objRef["mc_" + i].btn.cursor = "pointer";
+				objRef["mc_" + i].btn.cursor = "pointer";		
 			}
 		}
 		this.fClickEvent = function(e) {	
@@ -1360,7 +1354,10 @@ if (reversed == null) { reversed = false; }
 					//this.parent.fLaunchProduct();
 					this.play();
 				}.bind(this), 5000);
-				this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				this.mcFeedBack.gotoAndStop(2);
+				this.mcA.alpha = 1;
+				this.mcA.gotoAndStop(1);
 				return;
 			}
 			this.fbAudio = main.playAudio('incorrect');
@@ -1370,7 +1367,8 @@ if (reversed == null) { reversed = false; }
 				this.fbAudio.removeEventListener('complete', this.instAudEnt);
 				this.fShowCorrectAnswer();
 			}.bind(this));	
-			this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			this.mcFeedBack.gotoAndStop(1);
 		}
 		function fChangeQuestion() {
 			this.play();
@@ -1383,7 +1381,10 @@ if (reversed == null) { reversed = false; }
 		}
 		this.fShowCorrectAnswer = function() {
 			objRef["mc_" + __nCorrectAnswer].gotoAndStop(1);
-			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			//objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			this.mcFeedBack.gotoAndStop(2);
+			this.mcA.alpha = 1;
+			this.mcA.gotoAndStop(1);
 			setTimeout(function()
 			{
 				this.play();
@@ -1588,10 +1589,6 @@ if (reversed == null) { reversed = false; }
 		/* this.blnPlay = true;*/
 	}
 	this.frame_68 = function() {
-		/* stop();
-		this.blnPlay = false;
-		__nCorrectAnswer = 1;
-		init();*/
 		this.stop();
 		this.blnPlay = false;
 		var objRef = this;
@@ -1602,7 +1599,7 @@ if (reversed == null) { reversed = false; }
 			for (var i = 1; objRef["mc_"+i] != undefined; i++) {
 				objRef["mc_"+i].id = i;				
 				objRef["mc_" + i].btn.addEventListener("mousedown", objRef["mc_" + i].listener = this.fClickEvent.bind(this));
-				objRef["mc_" + i].btn.cursor = "pointer";
+				objRef["mc_" + i].btn.cursor = "pointer";		
 			}
 		}
 		this.fClickEvent = function(e) {	
@@ -1617,7 +1614,10 @@ if (reversed == null) { reversed = false; }
 				{			
 					this.parent.fLaunchProduct();
 				}.bind(this), 5000);
-				this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				this.mcFeedBack.gotoAndStop(2);
+				this.mcA.alpha = 1;
+				this.mcA.gotoAndStop(1);
 				return;
 			}
 			this.fbAudio = main.playAudio('incorrect');
@@ -1627,7 +1627,8 @@ if (reversed == null) { reversed = false; }
 				this.fbAudio.removeEventListener('complete', this.instAudEnt);
 				this.fShowCorrectAnswer();
 			}.bind(this));	
-			this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			this.mcFeedBack.gotoAndStop(1);
 		}
 		function fChangeQuestion() {
 			this.play();
@@ -1640,7 +1641,10 @@ if (reversed == null) { reversed = false; }
 		}
 		this.fShowCorrectAnswer = function() {
 			objRef["mc_" + __nCorrectAnswer].gotoAndStop(1);
-			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			//objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			this.mcFeedBack.gotoAndStop(2);
+			this.mcA.alpha = 1;
+			this.mcA.gotoAndStop(1);
 			setTimeout(function()
 			{
 				//this.parent.strFrame = "strFrame2";
@@ -1825,11 +1829,6 @@ if (reversed == null) { reversed = false; }
 		/* this.blnPlay = true;*/
 	}
 	this.frame_64 = function() {
-		/* stop();
-		this.blnPlay = false;
-		__nCorrectAnswer = 1;
-		init();*/
-		
 		this.stop();
 		this.blnPlay = false;
 		var objRef = this;
@@ -1840,7 +1839,7 @@ if (reversed == null) { reversed = false; }
 			for (var i = 1; objRef["mc_"+i] != undefined; i++) {
 				objRef["mc_"+i].id = i;				
 				objRef["mc_" + i].btn.addEventListener("mousedown", objRef["mc_" + i].listener = this.fClickEvent.bind(this));
-				objRef["mc_" + i].btn.cursor = "pointer";
+				objRef["mc_" + i].btn.cursor = "pointer";		
 			}
 		}
 		this.fClickEvent = function(e) {	
@@ -1855,7 +1854,10 @@ if (reversed == null) { reversed = false; }
 				{			
 					this.parent.fLaunchProduct();
 				}.bind(this), 5000);
-				this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				this.mcFeedBack.gotoAndStop(2);
+				this.mcA.alpha = 1;
+				this.mcA.gotoAndStop(1);
 				return;
 			}
 			this.fbAudio = main.playAudio('incorrect');
@@ -1865,7 +1867,8 @@ if (reversed == null) { reversed = false; }
 				this.fbAudio.removeEventListener('complete', this.instAudEnt);
 				this.fShowCorrectAnswer();
 			}.bind(this));	
-			this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			this.mcFeedBack.gotoAndStop(1);
 		}
 		function fChangeQuestion() {
 			this.play();
@@ -1878,7 +1881,10 @@ if (reversed == null) { reversed = false; }
 		}
 		this.fShowCorrectAnswer = function() {
 			objRef["mc_" + __nCorrectAnswer].gotoAndStop(1);
-			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			//objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			this.mcFeedBack.gotoAndStop(2);
+			this.mcA.alpha = 1;
+			this.mcA.gotoAndStop(1);
 			setTimeout(function()
 			{
 				//this.parent.strFrame = "strFrame2";
@@ -2141,7 +2147,10 @@ if (reversed == null) { reversed = false; }
 				{			
 					this.parent.fLaunchProduct();
 				}.bind(this), 5000);
-				this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(2);
+				this.mcFeedBack.gotoAndStop(2);
+				this.mcA.alpha = 1;
+				this.mcA.gotoAndStop(1);
 				return;
 			}
 			this.fbAudio = main.playAudio('incorrect');
@@ -2151,7 +2160,8 @@ if (reversed == null) { reversed = false; }
 				this.fbAudio.removeEventListener('complete', this.instAudEnt);
 				this.fShowCorrectAnswer();
 			}.bind(this));	
-			this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			//this["mcTick_" + e.currentTarget.parent.id].gotoAndStop(1);
+			this.mcFeedBack.gotoAndStop(1);
 		}
 		function fChangeQuestion() {
 			this.play();
@@ -2164,7 +2174,10 @@ if (reversed == null) { reversed = false; }
 		}
 		this.fShowCorrectAnswer = function() {
 			objRef["mc_" + __nCorrectAnswer].gotoAndStop(1);
-			objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			//objRef["mcTick_" + __nCorrectAnswer].gotoAndStop(2);
+			this.mcFeedBack.gotoAndStop(2);
+			this.mcA.alpha = 1;
+			this.mcA.gotoAndStop(1);
 			setTimeout(function()
 			{
 				//this.parent.strFrame = "strFrame2";
@@ -2376,7 +2389,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Interface_atlas_1.png?1640563403797", id:"Interface_atlas_1"}
+		{src:"images/Interface_atlas_1.png?1641452674699", id:"Interface_atlas_1"}
 	],
 	preloads: []
 };
